@@ -2,6 +2,7 @@ package com.example.muyeyong;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,13 +35,15 @@ public class MainActivity extends AppCompatActivity {
                 public boolean onMenuItemClick(MenuItem item) {
                     switch (item.getItemId()){
                         case R.id.m1:
-                            Toast.makeText(getApplication(),"교수님",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplication(),"홈 화면입니다",Toast.LENGTH_SHORT).show();
                             break;
                         case R.id.m2:
-                            Toast.makeText(getApplication(),"여긴 나중에",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplication(),"나의 프로필입니다",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), UserActivity.class));
                             break;
                         case R.id.m3:
-                            Toast.makeText(getApplication(),"구현하겠습니다",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplication(),"색상 상세보기 입니다",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), DetailActivity.class));
                             break;
                         default:
                             break;

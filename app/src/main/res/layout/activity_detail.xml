@@ -4,10 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".MainActivity">
-
-
+    tools:context=".DetailActivity">
     <LinearLayout
         android:id="@+id/linear1"
         android:layout_width="match_parent"
@@ -179,6 +176,4 @@
             android:background="@drawable/ad"/>
 
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
