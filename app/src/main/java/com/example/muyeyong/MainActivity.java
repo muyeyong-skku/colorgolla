@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
                 public boolean onMenuItemClick(MenuItem item) {
                     switch (item.getItemId()){
                         case R.id.m1:
-                            Toast.makeText(getApplication(),"메뉴1",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplication(),"교수님",Toast.LENGTH_SHORT).show();
                             break;
                         case R.id.m2:
-                            Toast.makeText(getApplication(),"메뉴1",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplication(),"여긴 나중에",Toast.LENGTH_SHORT).show();
                             break;
                         case R.id.m3:
-                            Toast.makeText(getApplication(),"메뉴1",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplication(),"구현하겠습니다",Toast.LENGTH_SHORT).show();
                             break;
                         default:
                             break;
