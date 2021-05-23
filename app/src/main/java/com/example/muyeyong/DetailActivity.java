@@ -21,8 +21,8 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        ImageButton btn1 = (ImageButton) findViewById(R.id.sharebtn);
-        btn1.setOnClickListener(new View.OnClickListener() {
+        ImageButton sharebtn = (ImageButton) findViewById(R.id.sharebtn);
+        sharebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent Sharing_intent = new Intent(Intent.ACTION_SEND);
