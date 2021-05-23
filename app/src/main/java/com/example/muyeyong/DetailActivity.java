@@ -23,20 +23,14 @@ public class DetailActivity extends AppCompatActivity {
 
     Button sharebtn;
     Button savebtn;
+    private ImageView iv;
 
-    ImageView imageView;
-    File file;
 
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
-        File sdcard = Environment.getExternalStorageDirectory();
-        file = new File(sdcard, "colorimage9.png");
-
-        imageView = findViewById(R.id.imageView9);
 
         ImageButton sharebtn = (ImageButton) findViewById(R.id.sharebtn);
         ImageButton savebtn = (ImageButton) findViewById(R.id.savebtn);
@@ -72,28 +66,6 @@ public class DetailActivity extends AppCompatActivity {
 
     }
 }
-
-    //public void download(){
-        //file.
-               //String filename = "myfile";
-                //String string = "Hello world!";
-                //FileOutputStream outputStream;
-
-                //try {
-                    //outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-                    //outputStream.write(string.getBytes());
-                    //outputStream.close();
-
-                    //Toast.makeText(this, "this is internal storage save success.", Toast.LENGTH_LONG).show();
-                //} catch (Exception e) {
-                    //e.printStackTrace();
-
-                    //Toast.makeText(this, "this is internal storage save fail.", Toast.LENGTH_LONG).show();
-                //}
-            //}
-        //});
-    //}}
-
 
 
 
