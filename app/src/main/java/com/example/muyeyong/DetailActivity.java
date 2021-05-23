@@ -21,11 +21,6 @@ import java.io.FileOutputStream;
 
 public class DetailActivity extends AppCompatActivity {
 
-    Button sharebtn;
-    Button savebtn;
-    private ImageView iv;
-
-
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
