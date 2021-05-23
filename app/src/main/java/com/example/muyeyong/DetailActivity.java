@@ -34,10 +34,8 @@ public class DetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent Sharing_intent = new Intent(Intent.ACTION_SEND);
                 Sharing_intent.setType("text/plain");
-                Sharing_intent.setType("image/*");
 
-                Sharing_intent.putExtra(Intent.EXTRA_STREAM, Uri.parse(String.valueOf(R.drawable.i11)));
-                String Test_Message = "Color Golla에서 공유한 이미지입니다.";
+                String Test_Message = "최예원님이 컬러골라에서 공유한 이미지입니다 \n \n https://bit.ly/2Rx6Kuh";
 
                 Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message);
 
@@ -48,8 +46,11 @@ public class DetailActivity extends AppCompatActivity {
         savebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //download();
-            }
+                Intent myIntent;
+                String url = "https://bit.ly/2Rx6Kuh";
+                myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(myIntent);
+             }
         });
     }
 
