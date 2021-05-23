@@ -3,6 +3,7 @@ package com.example.muyeyong;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -11,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.Toast;
+
+import java.io.FileOutputStream;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -35,6 +38,29 @@ public class DetailActivity extends AppCompatActivity {
                 Intent Sharing = Intent.createChooser(Sharing_intent, "공유하기");
                 startActivity(Sharing);
         }
+           // public void isave(View view)
+           // {
+                //isave();
+           // }
+
+            //public void isave()
+            //{
+               //String filename = "myfile";
+              //  String string = "Hello world!";
+              //  FileOutputStream outputStream;
+
+               // try {
+                //    outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+               //     outputStream.write(string.getBytes());
+               //     outputStream.close();
+//
+               //     Toast.makeText(this, "this is internal storage save success.", Toast.LENGTH_LONG).show();
+              //  } catch (Exception e) {
+                 //   e.printStackTrace();
+
+                  //  Toast.makeText(this, "this is internal storage save fail.", Toast.LENGTH_LONG).show();
+                //}
+            //}
         });
     }}
 

@@ -40,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
         Intent it = new Intent(MainActivity.this, DetailActivity.class);
         startActivity(it);
     }
+    public void funcMoveUser(View v){
+        Intent it = new Intent(MainActivity.this, UserActivity.class);
+        startActivity(it);
+    }
     private void checkPermission(){
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             // 다시 보지 않기 버튼을 만드려면 이 부분에 바로 요청을 하도록 하면 됨 (아래 else{..} 부분 제거)
