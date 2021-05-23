@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.MenuItem;
@@ -18,7 +19,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 
-public class DetailActivity extends AppCompatActivity  {
+public class DetailActivity extends AppCompatActivity {
 
     Button sharebtn;
     Button savebtn;
@@ -27,6 +28,7 @@ public class DetailActivity extends AppCompatActivity  {
     File file;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
@@ -43,8 +45,10 @@ public class DetailActivity extends AppCompatActivity  {
             public void onClick(View v) {
                 Intent Sharing_intent = new Intent(Intent.ACTION_SEND);
                 Sharing_intent.setType("text/plain");
+                Sharing_intent.setType("image/*");
 
-                String Test_Message = "공유할 Text";
+                Sharing_intent.putExtra(Intent.EXTRA_STREAM, Uri.parse(String.valueOf(R.drawable.i11)));
+                String Test_Message = "Color Golla에서 공유한 이미지입니다.";
 
                 Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message);
 
@@ -55,31 +59,40 @@ public class DetailActivity extends AppCompatActivity  {
         savebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                download();
+                //download();
             }
         });
     }
 
-    public void download(){
-        file.
-               String filename = "myfile";
-                String string = "Hello world!";
-                FileOutputStream outputStream;
+    public void onButton2Clicked(View v) {
+        Intent myIntent;
+        String url = "https://bit.ly/3vdYC0a";
+        myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(myIntent);
 
-                try {
-                    outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-                    outputStream.write(string.getBytes());
-                    outputStream.close();
+    }
+}
 
-                    Toast.makeText(this, "this is internal storage save success.", Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
+    //public void download(){
+        //file.
+               //String filename = "myfile";
+                //String string = "Hello world!";
+                //FileOutputStream outputStream;
 
-                    Toast.makeText(this, "this is internal storage save fail.", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-    }}
+                //try {
+                    //outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+                    //outputStream.write(string.getBytes());
+                    //outputStream.close();
+
+                    //Toast.makeText(this, "this is internal storage save success.", Toast.LENGTH_LONG).show();
+                //} catch (Exception e) {
+                    //e.printStackTrace();
+
+                    //Toast.makeText(this, "this is internal storage save fail.", Toast.LENGTH_LONG).show();
+                //}
+            //}
+        //});
+    //}}
 
 
 
