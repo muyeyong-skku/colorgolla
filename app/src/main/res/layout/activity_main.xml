@@ -187,7 +187,8 @@
                         android:layout_height="180dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/i11" />
+                        android:background="@drawable/i11"
+                        android:onClick="funcMoveDetail"/>
 
                     <ImageButton
                         android:id="@+id/button13"
