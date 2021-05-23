@@ -8,7 +8,7 @@
         android:label="Color Golla"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Muyeyong">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".UserActivity"></activity>
         <activity android:name=".DetailActivity" />
         <activity android:name=".MainActivity">
