@@ -157,12 +157,11 @@
                 android:background="@android:drawable/ic_menu_add" />
 
             <ImageButton
-                android:id="@+id/saveButton"
+                android:id="@+id/savebtn"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginHorizontal="5dp"
-                android:background="@android:drawable/ic_menu_save"
-                android:onClick="isave"/>
+                android:background="@android:drawable/ic_menu_save" />
 
             <ImageButton
                 android:id="@+id/sharebtn"
