@@ -27,22 +27,22 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
 
         public void onClick(View v) {
-            PopupMenu popup= new PopupMenu(getApplicationContext(), v);//v는 클릭된 뷰를 의미
+            PopupMenu popup = new PopupMenu(getApplicationContext(), v);//v는 클릭된 뷰를 의미
 
             getMenuInflater().inflate(R.menu.option_menu, popup.getMenu());
             popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    switch (item.getItemId()){
+                    switch (item.getItemId()) {
                         case R.id.m1:
-                            Toast.makeText(getApplication(),"홈 화면입니다",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplication(), "홈 화면입니다", Toast.LENGTH_SHORT).show();
                             break;
                         case R.id.m2:
-                            Toast.makeText(getApplication(),"나의 프로필입니다",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplication(), "나의 프로필입니다", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), UserActivity.class));
                             break;
                         case R.id.m3:
-                            Toast.makeText(getApplication(),"색상 상세보기 입니다",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplication(), "색상 상세보기 입니다", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), DetailActivity.class));
                             break;
                         default:
@@ -53,9 +53,11 @@ public class MainActivity extends AppCompatActivity {
             });
 
             popup.show();//Popup Menu 보이기
+
         }
     });
 }}
+
 
 
 
