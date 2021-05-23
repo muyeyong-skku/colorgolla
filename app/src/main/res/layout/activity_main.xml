@@ -22,8 +22,8 @@
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="50dp"
-            android:layout_height="100dp"
+            android:layout_width="25dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/cg" />
 
@@ -33,13 +33,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:text="Color Golla"
+            android:text="Color Golla.pro"
             android:textColor="#FFFFFF"
-            android:textSize="40dp" />
+            android:textSize="30dp" />
 
         <ImageButton
             android:id="@+id/viewmore"
-            android:layout_width="10dp"
+            android:layout_width="5dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="20dp"
@@ -157,7 +157,8 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="50dp">
 
                     <ImageButton
                         android:id="@+id/button10"
@@ -182,6 +183,7 @@
         </LinearLayout>
 
     </ScrollView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
