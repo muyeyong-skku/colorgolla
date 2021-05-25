@@ -29,13 +29,14 @@ public class DetailActivity extends AppCompatActivity {
 
         ImageButton sharebtn = (ImageButton) findViewById(R.id.sharebtn);
         ImageButton savebtn = (ImageButton) findViewById(R.id.savebtn);
+        ImageButton likebtn = (ImageButton) findViewById(R.id.likebtn);
         sharebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent Sharing_intent = new Intent(Intent.ACTION_SEND);
                 Sharing_intent.setType("text/plain");
 
-                String Test_Message = "최예원님이 컬러골라에서 공유한 이미지입니다 \n \n https://bit.ly/2Rx6Kuh";
+                String Test_Message = "최예원님이 컬러골라에서 공유한 이미지입니다 \n \n https://url.kr/sofe4m";
 
                 Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message);
 
@@ -47,10 +48,16 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent;
-                String url = "https://bit.ly/2Rx6Kuh";
+                String url = "https://blogattach.naver.com/0e9b12a1bbefea361afe9ca593720572d48f719f6e/20210525_19_blogfile/skkscan_1621924042723_h404tZ_png/i11.png";
                 myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(myIntent);
              }
+        });
+        likebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "이미지 클릭", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
@@ -60,6 +67,11 @@ public class DetailActivity extends AppCompatActivity {
         myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(myIntent);
 
+    }
+
+    public void funcMoveUser(View v){
+        Intent it = new Intent(DetailActivity.this, UserActivity.class);
+        startActivity(it);
     }
 }
 

@@ -3,6 +3,7 @@ package com.example.muyeyong;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,11 +33,15 @@ public class UserActivity extends AppCompatActivity {
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                 break;
                             case R.id.m2:
-                                Toast.makeText(getApplication(),"나의 프로필입니다",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplication(),"회사 소개입니다",Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), AboutActivity.class));
                                 break;
                             case R.id.m3:
-                                Toast.makeText(getApplication(),"색상 상세보기 입니다",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), DetailActivity.class));
+                                Toast.makeText(getApplication(),"공식 SNS로 이동합니다",Toast.LENGTH_SHORT).show();
+                                Intent myIntent;
+                                String url = "https://www.instagram.com/colorgolla/";
+                                myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                                startActivity(myIntent);
                                 break;
                             default:
                                 break;

@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/m1"
-        android:title="홈 화면" />
+        android:title="Home" />
     <item
         android:id="@+id/m2"
-        android:title="나의 프로필"/>
+        android:title="About"/>
     <item
         android:id="@+id/m3"
-        android:title="색상 상세보기"/>
+        android:title="Instagram"/>
 
 </menu>
