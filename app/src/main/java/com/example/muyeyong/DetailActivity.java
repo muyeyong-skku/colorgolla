@@ -22,26 +22,26 @@ import java.io.File;
 import java.io.FileOutputStream;
 
 public class DetailActivity extends AppCompatActivity {
-    private ImageView iv1;
-    private Bitmap imageToStore;
-    DatabaseHandler objectDatabaseHandler;
+//    private ImageView iv1;
+//    private Bitmap imageToStore;
+//    DatabaseHandler objectDatabaseHandler;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        try
-        {
-            //objectImageView=findViewById(R.id.imageView1);
-            objectDatabaseHandler=new DatabaseHandler(this);
-            //objectImageView.setImageBitmap(imageToStore);
-            iv1.setImageBitmap(imageToStore);
-        }
-        catch (Exception e)
-        {
-            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+//        try
+//        {
+//            //objectImageView=findViewById(R.id.imageView1);
+//            objectDatabaseHandler=new DatabaseHandler(this);
+//            //objectImageView.setImageBitmap(imageToStore);
+//            iv1.setImageBitmap(imageToStore);
+//        }
+//        catch (Exception e)
+//        {
+//            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//        }
 
         TextView tx1 = (TextView) findViewById(R.id.textView1);
         TextView tx2 = (TextView) findViewById(R.id.textView2);
@@ -85,15 +85,7 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
-//        try
-//        {
-//            objectImageView(findViewById(R.id.imageView1);
-//        }
-//        catch (Exception e)
-//        {
-//            Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
-//        }
-//    }
+
     }
     public void onButton2Clicked(View v) {
         Intent myIntent;
@@ -107,24 +99,24 @@ public class DetailActivity extends AppCompatActivity {
         Intent it = new Intent(DetailActivity.this, UserActivity.class);
         startActivity(it);
     }
-    public void storeImage (View view)
-    {
-        try
-        {
-            if(iv1.getDrawable()!=null&&imageToStore!=null)
-            {
-                objectDatabaseHandler.storeImage(new ModelClass(imageToStore));
-            }
-            else
-            {
-                Toast.makeText(this, "저장에 실패하였습니다", Toast.LENGTH_SHORT).show();
-            }
-        }
-        catch (Exception e)
-        {
-            Toast.makeText(this, "shit", Toast.LENGTH_SHORT).show();
-        }
-    }
+//    public void storeImage (View view)
+//    {
+//        try
+//        {
+//            if(iv1.getDrawable()!=null&&imageToStore!=null)
+//            {
+//                objectDatabaseHandler.storeImage(new ModelClass(imageToStore));
+//            }
+//            else
+//            {
+//                Toast.makeText(this, "저장에 실패하였습니다", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//        catch (Exception e)
+//        {
+//            Toast.makeText(this, "shit", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 }
 
 

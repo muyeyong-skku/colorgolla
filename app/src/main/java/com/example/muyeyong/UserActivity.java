@@ -15,24 +15,24 @@ import android.widget.Toast;
 
 public class UserActivity extends AppCompatActivity {
 
-    private DatabaseHandler objectDatabaseHandler;
+//    private DatabaseHandler objectDatabaseHandler;
     private RecyclerView objectRecyclerView;
 
-    RVAdapter objectRvAdapter;
+//    RVAdapter objectRvAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
-
-        try
-        {
-                objectRecyclerView=findViewById(R.id.imageRV);
-                objectDatabaseHandler=new DatabaseHandler(this);
-        }
-        catch(Exception e)
-        {
-            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
-        }
+//
+//        try
+//        {
+//                objectRecyclerView=findViewById(R.id.imageRV);
+//                objectDatabaseHandler=new DatabaseHandler(this);
+//        }
+//        catch(Exception e)
+//        {
+//            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+//        }
 
 
 
@@ -73,22 +73,22 @@ public class UserActivity extends AppCompatActivity {
             }
         });
     }
-    
-    public void getData(View view)
-    {
-        try 
-        {
-            objectRvAdapter=new RVAdapter(objectDatabaseHandler.getALLIMAGESDATA());
-            objectRecyclerView.setHasFixedSize(true);
-
-            objectRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-            objectRecyclerView.setAdapter(objectRvAdapter);
-        }
-        catch(Exception e)
-        {
-            Toast.makeText(this, "어랏 문제가 발생했네요!", Toast.LENGTH_SHORT).show();
-        }
-    }
+//
+//    public void getData(View view)
+//    {
+//        try
+//        {
+//            objectRvAdapter=new RVAdapter(objectDatabaseHandler.getALLIMAGESDATA());
+//            objectRecyclerView.setHasFixedSize(true);
+//
+//            objectRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//            objectRecyclerView.setAdapter(objectRvAdapter);
+//        }
+//        catch(Exception e)
+//        {
+//            Toast.makeText(this, "어랏 문제가 발생했네요!", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 }
 
 
