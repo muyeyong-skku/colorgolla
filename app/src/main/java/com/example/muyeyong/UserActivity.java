@@ -1,6 +1,8 @@
 package com.example.muyeyong;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -13,10 +15,27 @@ import android.widget.Toast;
 
 public class UserActivity extends AppCompatActivity {
 
+    private DatabaseHandler objectDatabaseHandler;
+    private RecyclerView objectRecyclerView;
+
+    RVAdapter objectRvAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+
+        try
+        {
+                objectRecyclerView=findViewById(R.id.imageRV);
+                objectDatabaseHandler=new DatabaseHandler(this);
+        }
+        catch(Exception e)
+        {
+            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+        }
+
+
+
         ImageButton btn = (ImageButton) findViewById(R.id.viewmore);
         btn.setOnClickListener(new View.OnClickListener() {
 
@@ -53,7 +72,24 @@ public class UserActivity extends AppCompatActivity {
                 popup.show();//Popup Menu 보이기
             }
         });
-    }}
+    }
+    
+    public void getData(View view)
+    {
+        try 
+        {
+            objectRvAdapter=new RVAdapter(objectDatabaseHandler.getALLIMAGESDATA());
+            objectRecyclerView.setHasFixedSize(true);
+
+            objectRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            objectRecyclerView.setAdapter(objectRvAdapter);
+        }
+        catch(Exception e)
+        {
+            Toast.makeText(this, "어랏 문제가 발생했네요!", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
 
 
 

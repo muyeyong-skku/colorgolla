@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linear1"
         tools:layout_editor_absoluteX="12dp">
 
-        <TextView
+        <Button
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -69,7 +69,8 @@
             android:text="좋아요 한 색상이 표시됩니다"
             android:textColor="@color/gray"
             android:textSize="26sp"
-            android:fontFamily="@font/ngeb"/>
+            android:fontFamily="@font/ngeb"
+            android:onClick="getData"/>
 
         <TextView
             android:id="@+id/textView5"
@@ -97,36 +98,41 @@
             app:layout_constraintTop_toBottomOf="@+id/linear2"
             tools:layout_editor_absoluteX="12dp">
 
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:padding="30dp"
-                android:columnCount="2"
-                android:orientation="horizontal">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageRV"/>
+
+<!--            <GridLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:padding="30dp"-->
+<!--                android:columnCount="2"-->
+<!--                android:orientation="horizontal">-->
 
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:padding="10dp"
-                    app:srcCompat="@drawable/i11" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/imageView"-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="150dp"-->
+<!--                    android:padding="10dp"-->
+<!--                    app:srcCompat="@drawable/i11" />-->
 
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:padding="10dp"
-                    app:srcCompat="@drawable/i10" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/imageView6"-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="150dp"-->
+<!--                    android:padding="10dp"-->
+<!--                    app:srcCompat="@drawable/i10" />-->
 
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:padding="10dp"
-                    app:srcCompat="@drawable/i1" />
-            </GridLayout>
+<!--                <ImageView-->
+<!--                    android:id="@+id/imageView7"-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="150dp"-->
+<!--                    android:padding="10dp"-->
+<!--                    app:srcCompat="@drawable/i1" />-->
+<!--            </GridLayout>-->
 
 
         </LinearLayout>
