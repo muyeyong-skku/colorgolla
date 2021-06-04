@@ -41,7 +41,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<color> al = new ArrayList<color>();
-    private static final int MY_PERMISSION_STORAGE = 1111;
+  private static final int MY_PERMISSION_STORAGE = 1111;
     GridView lv;
 
     @Override
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        al.add(new color("a","b","c","d",R.drawable.i1,"e"));
+        al.add(new color("#222831","#393E46","#00ADB5","#EEEEEE",R.drawable.i1,"e"));
         al.add(new color("a","b","c","d",R.drawable.i2,"e"));
         al.add(new color("a","b","c","d",R.drawable.i3,"e"));
         al.add(new color("a","b","c","d",R.drawable.i4,"e"));
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         al.add(new color("a","b","c","d",R.drawable.i8,"e"));
         al.add(new color("a","b","c","d",R.drawable.i9,"e"));
         al.add(new color("a","b","c","d",R.drawable.i10,"e"));
-        al.add(new color("a","b","c","d",R.drawable.i11,"e"));
+        al.add(new color("#F1F3DE","#EB8F8F","#EC0101","#CD0A0A",R.drawable.i11,"e"));
         al.add(new color("a","b","c","d",R.drawable.i12,"e"));
         al.add(new color("a","b","c","d",R.drawable.i13,"e"));
         al.add(new color("a","b","c","d",R.drawable.i14,"e"));

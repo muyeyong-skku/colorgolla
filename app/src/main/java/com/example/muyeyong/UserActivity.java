@@ -9,11 +9,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class UserActivity extends AppCompatActivity {
+
 
 //    private DatabaseHandler objectDatabaseHandler;
     private RecyclerView objectRecyclerView;
@@ -23,6 +28,7 @@ public class UserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+
 //
 //        try
 //        {
@@ -33,7 +39,6 @@ public class UserActivity extends AppCompatActivity {
 //        {
 //            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
 //        }
-
 
 
         ImageButton btn = (ImageButton) findViewById(R.id.viewmore);
