@@ -8,19 +8,10 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.Toast;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.RelativeSizeSpan;
-import android.text.style.StyleSpan;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AboutActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,23 +53,6 @@ public class AboutActivity extends AppCompatActivity {
                 popup.show();//Popup Menu 보이기
             }
         });
-
-        TextView textView = findViewById(R.id.textView);
-        // 1
-        String content = textView.getText().toString();
-        SpannableString spannableString = new SpannableString(content);
-
-        // 2
-        String word = "Engineers' story";
-        int start = content.indexOf(word);
-        int end = start + word.length();
-
-        // 3
-        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#FF6702")), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannableString.setSpan(new StyleSpan(Typeface.BOLD), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannableString.setSpan(new RelativeSizeSpan(1.3f), start, end, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        // 4
-        textView.setText(spannableString);
     }
-    }
+
+}
