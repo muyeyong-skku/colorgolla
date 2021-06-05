@@ -91,7 +91,7 @@ public class DetailActivity extends AppCompatActivity {
                 Intent Sharing_intent = new Intent(Intent.ACTION_SEND);
                 Sharing_intent.setType("text/plain");
 
-                String Test_Message = "최예원님이 컬러골라에서 공유한 이미지입니다 \n \n https://url.kr/sofe4m";
+                String Test_Message = "최예원님이 컬러골라에서 공유한 이미지입니다 \n \n https://www.instagram.com/colorgolla/";
 
                 Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message);
 
