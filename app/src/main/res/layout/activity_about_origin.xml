@@ -58,11 +58,7 @@
             android:id="@+id/button"
             android:layout_width="130dp"
             android:layout_height="80dp"
-            android:layout_margin="10dp"
-            android:text="Test 1"
-            android:background="@color/design_default_color_primary"
-            android:onClick="funcMoveUser"
-            />
+            android:text="Test 1"/>
 
     </ScrollView>
 
