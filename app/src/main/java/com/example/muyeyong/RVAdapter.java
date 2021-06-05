@@ -42,7 +42,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.RVViewHolderClass>
         ImageView iv1;
         public RVViewHolderClass(@NonNull View itemView){
             super(itemView);
-            iv1=itemView.findViewById(R.id.sr_imageIV);
+            iv1=itemView.findViewById(R.id.imageView2);
         }
     }
 }

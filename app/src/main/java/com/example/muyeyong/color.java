@@ -18,5 +18,4 @@ public class color { // 자바빈
         this.tag = tag;
 
     }
-    public color() {}
 }
