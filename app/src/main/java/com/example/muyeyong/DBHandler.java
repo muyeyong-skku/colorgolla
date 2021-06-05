@@ -52,7 +52,27 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
-    public void storeColor(color color) {
+    public int toggleLike(color color) {
+        try
+        {
+            SQLiteDatabase objectSqLiteDatabase = this.getReadableDatabase();
+            ArrayList<color> colorList = new ArrayList<>();
+
+            Cursor objectCursor = objectSqLiteDatabase.rawQuery("select * from colorInfo where img=" + color.img, null);
+            if (objectCursor.getCount() > 0) {
+                return this.deleteColor(color);
+            } else {
+                return this.storeColor(color);
+            }
+
+
+        } catch (Exception e) {
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+            return -1;
+        }
+    }
+
+    public int storeColor(color color) {
 
         try {
             SQLiteDatabase objectSqLiteDatabase = this.getWritableDatabase();
@@ -70,11 +90,38 @@ public class DBHandler extends SQLiteOpenHelper {
             if (checkIFQueryRuns != -1) {
                 Toast.makeText(context, "데이터가 추가됨", Toast.LENGTH_SHORT).show();
                 objectSqLiteDatabase.close();
+
+                return 1;
             } else {
                 Toast.makeText(context, "실패", Toast.LENGTH_SHORT).show();
+                return -1;
             }
         } catch (Exception e) {
             Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+            return -1;
+        }
+    }
+
+    public int deleteColor(color color) {
+
+        try {
+            SQLiteDatabase objectSqLiteDatabase = this.getWritableDatabase();
+
+            String[] selectionArgs = { String.valueOf(color.img) };
+
+            long checkIFQueryRuns = objectSqLiteDatabase.delete("colorInfo", "img LIKE ?", selectionArgs);
+            if (checkIFQueryRuns > 0) {
+                Toast.makeText(context, "좋아요가 취소되었습니다.", Toast.LENGTH_SHORT).show();
+                objectSqLiteDatabase.close();
+
+                return 2;
+            } else {
+                Toast.makeText(context, "실패", Toast.LENGTH_SHORT).show();
+                return -1;
+            }
+        } catch (Exception e) {
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+            return -1;
         }
     }
 

@@ -44,13 +44,16 @@ public class UserActivity extends AppCompatActivity {
 
         al = dbhandler.getColors();
 
-        YourAdapter adapter = new YourAdapter(
-                getApplicationContext(), // 현재화면의 제어권자
-                R.layout.single_row,  // 리스트뷰의 한행의 레이아웃
-                al);         // 데이터
-
         lv = (GridView)findViewById(R.id.listView2);
-        lv.setAdapter(adapter);
+
+        if(al != null){
+            YourAdapter adapter = new YourAdapter(
+                    getApplicationContext(), // 현재화면의 제어권자
+                    R.layout.single_row,  // 리스트뷰의 한행의 레이아웃
+                    al);         // 데이터
+
+            lv.setAdapter(adapter);
+        }
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -73,9 +76,6 @@ public class UserActivity extends AppCompatActivity {
                 intent.putExtra("third", al.get(position).third);
                 intent.putExtra("img", al.get(position).img);
                 intent.putExtra("fourth", al.get(position).fourth);
-
-
-
 
                 startActivity(intent);
             }

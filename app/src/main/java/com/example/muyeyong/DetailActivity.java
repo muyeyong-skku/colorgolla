@@ -102,7 +102,7 @@ public class DetailActivity extends AppCompatActivity {
         likebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbHandler.storeColor(clr);
+                dbHandler.toggleLike(clr);
             }
         });
         savebtn.setOnClickListener(new View.OnClickListener() {
