@@ -15,19 +15,19 @@ import java.util.ArrayList;
 public class DBHandler extends SQLiteOpenHelper {
 
     Context context;
-    private static String DATABASE_NAME = "TP.db";
+    private static String DATABASE_NAME = "TermProject.db";
 
     private static int DATABASE_VERSION = 1;
     private static String createTableQuery = "" +
-            "CREATE TABLE imageInfo (\n" +
-            "\tcolor_id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-            "\tfirst TEXT NOT NULL,\n" +
-            "\tsecond TEXT NOT NULL,\n" +
-            "\tthird TEXT NOT NULL,\n" +
-            "\tfourth TEXT NOT NULL,\n" +
-            "\timg INTEGER NOT NULL,\n" +
-            "\tfourth TEXT NOT NULL\n" +
-            ");";
+            "CREATE TABLE colorInfo (" +
+            "color_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "first TEXT NOT NULL," +
+            "second TEXT NOT NULL," +
+            "third TEXT NOT NULL," +
+            "fourth TEXT NOT NULL," +
+            "img INTEGER NOT NULL," +
+            "tag TEXT NOT NULL" +
+            ")";
     private ByteArrayOutputStream objectByteArrayOutputStream;
     private byte[] imageInBytes;
 
@@ -52,7 +52,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
-    public void storeImage(color color) {
+    public void storeColor(color color) {
 
         try {
             SQLiteDatabase objectSqLiteDatabase = this.getWritableDatabase();
@@ -66,7 +66,7 @@ public class DBHandler extends SQLiteOpenHelper {
             Values.put("img", color.img);
             Values.put("tag", color.tag);
 
-            long checkIFQueryRuns = objectSqLiteDatabase.insert("imageInfo", null, Values);
+            long checkIFQueryRuns = objectSqLiteDatabase.insert("colorInfo", null, Values);
             if (checkIFQueryRuns != -1) {
                 Toast.makeText(context, "데이터가 추가됨", Toast.LENGTH_SHORT).show();
                 objectSqLiteDatabase.close();
@@ -84,20 +84,23 @@ public class DBHandler extends SQLiteOpenHelper {
             SQLiteDatabase objectSqLiteDatabase = this.getReadableDatabase();
             ArrayList<color> colorList = new ArrayList<>();
 
-            Cursor objectCursor = objectSqLiteDatabase.rawQuery("select * from imageInfo", null);
+            Cursor objectCursor = objectSqLiteDatabase.rawQuery("select * from colorInfo", null);
             if (objectCursor.getCount() != 0) {
                 while (objectCursor.moveToNext()) {
-                    byte[] imageBytes = objectCursor.getBlob(0);
+                    String first = objectCursor.getString(1);
+                    String second = objectCursor.getString(2);
+                    String third = objectCursor.getString(3);
+                    String fourth = objectCursor.getString(4);
+                    int img = objectCursor.getInt(5);
+                    String tag = objectCursor.getString(6);
 
-                    Bitmap objectBitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-                    objectModelClassList.add(new ModelClass(objectBitmap));
+                    colorList.add(new color(first, second, third, fourth, img, tag));
                 }
 
-                return objectModelClassList;
+                return colorList;
             } else {
                 Toast.makeText(context, "데이터베이스에 아무 데이터도 없습니다", Toast.LENGTH_SHORT).show();
                 return null;
-
             }
 
 

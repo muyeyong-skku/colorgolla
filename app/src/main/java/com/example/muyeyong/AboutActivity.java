@@ -20,21 +20,18 @@ import java.util.ArrayList;
 
 public class AboutActivity extends AppCompatActivity {
     private String DATABASE_NAME = "mydb.db";
+    ArrayList<color> al;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        DatabaseHandler dbhandler = new DatabaseHandler(getApplicationContext());
-
-        Bitmap testBitMap = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.i1);
-
-        dbhandler.storeImage(new ModelClass(testBitMap));
+        DBHandler dbhandler = new DBHandler(getApplicationContext());
 
         Log.i("test","test");
 
-        ArrayList<ModelClass> al = dbhandler.getALLIMAGESDATA();
+        al = dbhandler.getColors();
 
         Log.i("test1","test1");
     }

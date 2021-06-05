@@ -34,26 +34,18 @@ import java.io.OutputStream;
 public class DetailActivity extends AppCompatActivity {
 //    private ImageView iv1;
 //    private Bitmap imageToStore;
-//    DatabaseHandler objectDatabaseHandler;
+    DBHandler dbHandler;
 
     ImageView imageView;
     Button button;
+
+    color clr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-//        try
-//        {
-//            //objectImageView=findViewById(R.id.imageView1);
-//            objectDatabaseHandler=new DatabaseHandler(this);
-//            //objectImageView.setImageBitmap(imageToStore);
-//            iv1.setImageBitmap(imageToStore);
-//        }
-//        catch (Exception e)
-//        {
-//            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
-//        }
+        dbHandler = new DBHandler(getApplicationContext());
 
         TextView tx1 = (TextView) findViewById(R.id.textView1);
         TextView tx2 = (TextView) findViewById(R.id.textView2);
@@ -69,6 +61,14 @@ public class DetailActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent(); // 보내온 Intent를 얻는다
+        clr = new color(
+                intent.getStringExtra("first"),
+                intent.getStringExtra("second"),
+                intent.getStringExtra("third"),
+                intent.getStringExtra("fourth"),
+                intent.getIntExtra("img", 0),
+                intent.getStringExtra("tag")
+        );
         tx1.setText(intent.getStringExtra("first"));
         tx2.setText(intent.getStringExtra("second"));
         tx3.setText(intent.getStringExtra("third"));
@@ -99,15 +99,12 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(Sharing);
             }
         });
-//        savebtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent myIntent;
-//                String url = "https://blogattach.naver.com/0e9b12a1bbefea361afe9ca593720572d48f719f6e/20210525_19_blogfile/skkscan_1621924042723_h404tZ_png/i11.png";
-//                myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-//                startActivity(myIntent);
-//            }
-//        });
+        likebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dbHandler.storeColor(clr);
+            }
+        });
         savebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

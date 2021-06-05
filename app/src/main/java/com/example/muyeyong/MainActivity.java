@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -41,7 +42,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<color> al = new ArrayList<color>();
-  private static final int MY_PERMISSION_STORAGE = 1111;
+    private static final int MY_PERMISSION_STORAGE = 1111;
     GridView lv;
 
     @Override
@@ -207,27 +208,6 @@ class MyAdapter extends BaseAdapter { // 리스트 뷰의 아답타
 
         return convertView;
     }
-}
-
-class color { // 자바빈
-    String first = ""; // 첫번째색깔
-    String second = ""; // 2번째색깔
-    String third = ""; // 3번째색깔
-    String fourth = ""; // 4번째색깔
-
-    int img; // 색 이미지
-    String tag = ""; // 태그목록
-    public color(String first, String second, String third, String fourth,int img, String tag) {
-        super();
-        this.first = first;
-        this.second = second;
-        this.third = third;
-        this.fourth= fourth;
-        this.img = img;
-        this.tag = tag;
-
-    }
-    public color() {}
 }
 
 
