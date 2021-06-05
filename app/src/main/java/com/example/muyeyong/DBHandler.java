@@ -55,11 +55,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public int toggleLike(color color) {
         try
         {
-            SQLiteDatabase objectSqLiteDatabase = this.getReadableDatabase();
-            ArrayList<color> colorList = new ArrayList<>();
-
-            Cursor objectCursor = objectSqLiteDatabase.rawQuery("select * from colorInfo where img=" + color.img, null);
-            if (objectCursor.getCount() > 0) {
+            if (this.checkLike(color)) {
                 return this.deleteColor(color);
             } else {
                 return this.storeColor(color);
@@ -69,6 +65,23 @@ public class DBHandler extends SQLiteOpenHelper {
         } catch (Exception e) {
             Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
             return -1;
+        }
+    }
+
+    public boolean checkLike(color color) {
+        try
+        {
+            SQLiteDatabase objectSqLiteDatabase = this.getReadableDatabase();
+
+            Cursor objectCursor = objectSqLiteDatabase.rawQuery("select * from colorInfo where img=" + color.img, null);
+            if (objectCursor.getCount() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+            return false;
         }
     }
 
@@ -88,7 +101,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
             long checkIFQueryRuns = objectSqLiteDatabase.insert("colorInfo", null, Values);
             if (checkIFQueryRuns != -1) {
-                Toast.makeText(context, "데이터가 추가됨", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "좋아요 목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
                 objectSqLiteDatabase.close();
 
                 return 1;
@@ -146,7 +159,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
                 return colorList;
             } else {
-                Toast.makeText(context, "데이터베이스에 아무 데이터도 없습니다", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "좋아요 목록이 비어있습니다.", Toast.LENGTH_SHORT).show();
                 return null;
             }
 

@@ -2,6 +2,7 @@ package com.example.muyeyong;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.Manifest;
 import android.app.Activity;
@@ -83,6 +84,15 @@ public class DetailActivity extends AppCompatActivity {
         Bitmap bitmap = ((BitmapDrawable)iv1.getDrawable()).getBitmap();
 
         ImageButton likebtn = (ImageButton) findViewById(R.id.likebtn);
+        if(dbHandler.checkLike(clr)){
+            likebtn.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.liked,null));
+        }
+        else{
+            likebtn.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.like,null));
+        }
+
+
+
         ImageButton sharebtn = (ImageButton) findViewById(R.id.sharebtn);
         ImageButton savebtn = (ImageButton) findViewById(R.id.savebtn);
         sharebtn.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +112,12 @@ public class DetailActivity extends AppCompatActivity {
         likebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbHandler.toggleLike(clr);
+                if(dbHandler.toggleLike(clr) == 1){
+                    likebtn.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.liked,null));
+                }
+                else{
+                    likebtn.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.like,null));
+                }
             }
         });
         savebtn.setOnClickListener(new View.OnClickListener() {

@@ -20,6 +20,7 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -47,6 +48,8 @@ public class UserActivity extends AppCompatActivity {
         lv = (GridView)findViewById(R.id.listView2);
 
         if(al != null){
+            TextView countText = (TextView)findViewById(R.id.textView5);
+            countText.setText("색상 조합 총 "+al.size()+"가지");
             YourAdapter adapter = new YourAdapter(
                     getApplicationContext(), // 현재화면의 제어권자
                     R.layout.single_row,  // 리스트뷰의 한행의 레이아웃
